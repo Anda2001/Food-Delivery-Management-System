@@ -1,20 +1,23 @@
-package BusinessLogic;
+package businessLogic;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
-public class Order{
+public class Order implements Serializable {
     int orderId;
     int clientId;
     LocalDateTime orderDate;
+    double price;
 
     public Order(){}
 
-    public Order(int orderId, int clientId, LocalDateTime orderDate) {
+    public Order(int orderId, int clientId, LocalDateTime orderDate, double price) {
         this.orderId = orderId;
         this.clientId = clientId;
         this.orderDate = orderDate;
+        this.price = price;
     }
 
     //create method hashCode
@@ -46,5 +49,30 @@ public class Order{
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
+
+    public int getHour() {
+        return orderDate.getHour();
+    }
+
+    public int getOrderDay() {
+        return orderDate.getDayOfMonth();
+    }
+
+    public int getOrderMonth() {
+        return orderDate.getMonthValue();
+    }
+
+    public int getOrderYear() {
+        return orderDate.getYear();
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
 
 }

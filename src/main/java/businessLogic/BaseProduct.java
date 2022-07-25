@@ -1,4 +1,6 @@
-package BusinessLogic;
+package businessLogic;
+
+import java.util.Objects;
 
 public class BaseProduct extends MenuItem {
     String title;
@@ -21,7 +23,7 @@ public class BaseProduct extends MenuItem {
 
     @Override
     public double computePrice() {
-        return 0;
+        return price;
     }
 
     //getters and setters
@@ -69,6 +71,22 @@ public class BaseProduct extends MenuItem {
         return sodium;
     }
 
+
+
+
+    @Override
+    public String toString() {
+        String s = "";
+        s+="Title: " + title + "\n";
+        s+="Rating: " + rating + "\n";
+        s+="Calories: " + calories + "\n";
+        s+="Protein: " + protein + "\n";
+        s+="Fat: " + fat + "\n";
+        s+="Sodium: " + sodium + "\n";
+        s+="Price: " + price + "\n";
+        return s;
+    }
+
     public void setSodium(int sodium) {
         this.sodium = sodium;
     }
@@ -79,6 +97,19 @@ public class BaseProduct extends MenuItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BaseProduct that = (BaseProduct) o;
+        return Objects.equals(title, that.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title);
     }
 
 }
