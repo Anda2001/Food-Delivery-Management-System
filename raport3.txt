@@ -1,1 +1,2 @@
-Client id:1 Number of times: 5
+Client id:1 Number of times: 7
+Client id:5 Number of times: 2
